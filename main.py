@@ -5,20 +5,13 @@ from data.dataset_loader import load_mnist_data
 from app.dashboard import create_dashboard
 
 def main():
-    # Load data
     x_train, y_train = load_mnist_data()
-
-    # Apply dimensionality reduction
     reduced_data = apply_umap(x_train[:1000])  # Use a subset for speed
-
-    # Apply clustering
     cluster_labels = apply_kmeans(reduced_data, n_clusters=10)
 
-    # Create visualizations
     umap_fig = create_scatter_plot(reduced_data, y_train[:1000], title="UMAP Projection of MNIST", label_name="Digit")
     cluster_fig = create_scatter_plot(reduced_data, cluster_labels, title="Clustering After UMAP", label_name="Cluster")
 
-    # Create and run the app
     app = create_dashboard(umap_fig, cluster_fig)
     app.run_server(debug=True)
 
