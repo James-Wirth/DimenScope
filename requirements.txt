@@ -1,0 +1,12 @@
+numpy
+pandas
+matplotlib
+plotly
+umap-learn
+scikit-learn
+tensorflow
+keras
+dash
+dash-bootstrap-components
+hdbscan
+shap
